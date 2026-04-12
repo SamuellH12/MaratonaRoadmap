@@ -27,7 +27,7 @@ description: >- # used by seo meta and the atom feed
 url: "https://samuellh12.github.io"
 
 # The base URL of your site
-baseurl: ""
+baseurl: "/MaratonaRoadmap"
 
 github:
   username: samuellh12 # change to your GitHub username
