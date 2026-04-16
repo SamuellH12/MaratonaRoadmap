@@ -6,16 +6,55 @@ date: 2026-04-11 22:04 -0300
 
 ## Introdução
 
-Este é um tutorial rápido de programação em C++ focando no básico de **lógica de programação** e da sintaxe de C++ visando a **programação competitiva**. 
+Esse é um tutorial rápido de **programação em C++** e no básico de **lógica de programação**, focado principalemente na **programação competitiva**. A ideia é ser uma introdução para quem está começando a aprender programação agora, assim como pra quem já possui alguma experiência de programação básica, mas em outra linguagem como _python_. 
 
-Não é meu objetivo aqui neste post explorar todas as possibilidades do C++ nem utilizar termos muito técnicos. O texto visa ser simples de entender e servir como uma introdução para quem nunca viu programação antes ou mesmo já sabe um pouco sobre, mas em outras linguagens como _python_.
+Como este é um resumo, existem _muitas_ informação que acabaram ficando de fora, mas espero que com o que você vir aqui já seja capaz de criar seus primeiros códigos e iniciar sua jornada na programação competitiva, mas saiba que há muito mais para descobrir e você pode, e deve, buscar outras fontes e tentar se aprofundar mais.
 
 
 ### O que é Programação? E C++? E Algoritmos???
 
+Na programação nós escrevemos **algoritmos** através de _**linguagens de programação**_, os códigos. Esses códigos são arquivos de texto comuns que são então _interpretados_ ou _compilados_, algo como"traduzidos", para instruções e comandos básicos que os computadores são capazes de entender.
+
+Mas o que são algoritmos afinal? **Um algoritmo é definido como uma sequência de passos ou operações bem definidas que permitem solucionar um problema ou realizar uma ação**. Um comparação clássica é com uma _receita de bolo_: existe uma sequência de passos e instruções que se seguidos corretamente levam ao resultado esperado. Mas em nosso caso, essas instruções não devem conter nenhuma ambiguidade, por isso utilizamos linguagens de programação como o C++, Python, Java e etc.
+
+
 ### Onde programar?
 
+Normalmente utilizamos programas como o **Visual Studio Code**, o Sublime, o Vim, entre outros. Esses são **editores de texto**, eles nos ajudam a organizar o código, detectar erros de sintaxe e agilizam a tarefa de codificar mostrando dicas, mas até o _bloco de notas_ poderia ser usado para escrever códigos.
+
+Mas para realmente se obter um programa de computador a partir de linhas de código é necessário utilizar um **compilador**, que vai pegar seu código e transformá-lo em um programa propriamente
+dito, um arquivo executável! 
+
+Mas como instalar ou usar um compilador de C++ pode dar um pouco de trabalho pra quem ainda está começando, uma boa alternativa para já começar a praticar são os compiladores online! Basta pesquisar por _"compilador de c++ online"_ que aparecerão muitas opções. Uma boa opção (atualmente) é o [Online CPP](https://www.online-cpp.com/). É claro que em algum momento (não muito longe de agora) você vai precisar passar por esse processo. Mas isso fica pra _outro tutorial_.
+
 ## Estrutura básica
+
+No C++ temos que respeitar um certo padrão, chamado de **Sintaxe**. A sintaxe dita quais palavras possuem quais funções e como devemos estruturar nosso código para que ele possa ser entendido pelo computador. Para iniciar nosso código temos de utilizar uma estrutura como essa aqui:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+
+    // O seu código vai aqui
+    
+    
+}
+```
+
+Mas pra que serve isso? O que cada palavra dessas quer dizer??? Vamos por partes
+
+O mais simples de entender é o *comentário*, esse texto `// O seu código vai aqui`. Essas duas barrinhas `//` indicam que tudo que vier depois dela nessa linha deve ser ignorado pelo computador. Isso serve somente para que o programador faça anotações no código e não faz diferença para o código.
+
+Agora, quanto a primeira linha: `#include <iostream>` é um comando para "**importar**" (incluir) *bibliotecas* e outras ferramentas que já estão prontas para serem usadas e que facilitam muitas etapas do código. Neste caso em particular, `<iostream>` é a biblioteca padrão de entrada e saída, que vamos explorar um pouco mais a seguir.
+
+O `using namespace std;` é para declarar que vamos utilizar coisas do "conjunto" de ferramentas do *std*, desse "namespace", e que quando utilizarmos não precisamos dizer explicitamente que pertencem à esse namespace. Utilizamos isso apenas por comodidade, para facilitar a leitura e escrita do código. Mas não é algo com que você deva se preocupar agora.
+
+Agora vamos para a parte *principal* do código! Nossa função principal, a `main`. Dentro da `main` estará o código que vai ser executado, isto é, entre as duas chaves `{}` é onde vamos escrever as linhas de código em si! Quando nosso programa iniciar ele vai identificar essa parte do código como a parte *principal* e os comandos que declaramos dentro da `main` serão executados linha por linha, do começo ao fim. Por isso é importante que esteja escrito exatamente dessa forma `main`, outra palavra não vai ser identificada pelo compilador.
+
+Ainda falta explicar o que é a palavra `int` antes de `main` e porque têm dois parenteses depois `()`, mas vou dar mais detalhes disso no final do post, por hora, abstraia essas informações. O relevante aqui é entender que essa é a estrutura básica de qualquer código em C++ e que é a partir daqui que vamos começar!
 
 ## Saída
 ## Variáveis e Tipos
@@ -23,4 +62,8 @@ Não é meu objetivo aqui neste post explorar todas as possibilidades do C++ nem
 ## Estruturas Condicionais
 ## Estruturas de Repetição
 ## Arrays
+## Funções
+### Recursão
+
 ## Próximos passos
+
