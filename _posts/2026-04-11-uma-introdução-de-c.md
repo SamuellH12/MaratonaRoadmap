@@ -139,7 +139,7 @@ Com números, também vamos querer realizar operações matemáticas! As princip
 |  `/` | Divisão          |
 |  `%` | Resto da divisão |
 
-Você pode realizar operações tanto entre números como entre variáveis!
+Você pode realizar operações tanto entre números (ou *literais*) como entre variáveis! Inclusive, é possível "somar" duas strings, isto é, concatenar os dois textos em um único texto! Experimente isso e veja o resultado!
 
 > **Uma observação importante:** as operações retornam um número do mesmo tipo dos números originais! \
 > Então `5.0 / 2.0 == 2.5` mas `5 / 2 == 2`, porque o número inteiro perde a parte decimal. Mas `5 % 2 == 1`, porque `1` é o resto da divisão inteira!
@@ -153,11 +153,45 @@ Você pode realizar operações tanto entre números como entre variáveis!
 </details>
 
 ## Entrada
+
+Certo, já sabemos como nosso programa pode enviar informações para o *mundo*, mas como ele pode **receber dados**? Esse é outro conceito fundamental, a **entrada**! 
+
+No C++, o comando de entrada é o `cin`, junção de C++ com *input*. E aqui na entrada precisamos armazenar essas informações em algum lugar, então o comando de entrada é feito sobre uma **variável**. 
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    string nome;
+
+    cin >> nome;
+    
+    cout << "Ola, " << nome << "!" << endl;
+
+    int num1, num2;
+    cin >> num1 >> num2;
+
+    cout << "A soma desses numeros eh " << (num1 + num2) << endl;
+}
+```
+
+Semelhante ao `cout`, no `cin` usamos o *operador* `>>` para indicar a variável em que será armazenada a informação. E aqui o tipo da variável também faz diferença, se você está tentando ler uma variável do tipo `int`, o programa irá esperar que o usuário insira um número, e se uma string for inserida por exemplo, poderá ocorrer um erro!  
+
+> É no **Terminal** que irão ocorrer as interações entre o usuário e o programa, tanto operações de saída como de entrada.
+> Quando uma operação de entrada ocorrer, o programa irá **parar**, **esperar** você digitar algo e então pressionar ***enter***. Só então o programa irá continuar sua execução, agora com o valor que você digitou no terminal armazenado na variável.
+{: .prompt-info }
+
+> Uma dica para memorizar! `cout` usa `<<`, como se fosse uma setinha apontando do valor para a saída, enquanto no o `cin` usa `>>`, uma setinha da entrada para a variável! Então na dúvida, pense na direção que você quer que a informação siga! Se para a **saída**, aponte para o `cout <<`. Se para a **entrada**, aponte a setinha do `cin >>` para a variável!
+
 ## Estruturas Condicionais
 ## Estruturas de Repetição
 ## Arrays
+### Vetores
 ## Funções
 ### Recursão
+## Utils
 
 ## Próximos passos
 
