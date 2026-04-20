@@ -133,11 +133,13 @@ int main() {
 
 Com números, também vamos querer realizar operações matemáticas! As principais operações são:
 
-|  `+` | Adição           |
-|  `-` | Subtração        |
-|  `*` | Multiplicação    |
-|  `/` | Divisão          |
-|  `%` | Resto da divisão |
+| Operador | Descrição        |
+| :------: | ---------------- |
+|   `+`    | Adição           |
+|   `-`    | Subtração        |
+|   `*`    | Multiplicação    |
+|   `/`    | Divisão          |
+|   `%`    | Resto da divisão |
 
 Você pode realizar operações tanto entre números (ou *literais*) como entre variáveis! Inclusive, é possível "somar" duas strings, isto é, concatenar os dois textos em um único texto! Experimente isso e veja o resultado!
 
@@ -186,8 +188,170 @@ Semelhante ao `cout`, no `cin` usamos o *operador* `>>` para indicar a variável
 > Uma dica para memorizar! `cout` usa `<<`, como se fosse uma setinha apontando do valor para a saída, enquanto no o `cin` usa `>>`, uma setinha da entrada para a variável! Então na dúvida, pense na direção que você quer que a informação siga! Se para a **saída**, aponte para o `cout <<`. Se para a **entrada**, aponte a setinha do `cin >>` para a variável!
 
 ## Estruturas Condicionais
+
+O próximo passo é entender as estruturas condicionais! Ou **estruturas de decisão**! Elas vão nos ajudar a tomar decisões baseadas nos valores das variáveis e controlar o fluxo do nosso código!
+
+Aqui nós usamos as palavras `if` e `else` que são respectivamente *"Se"* e *"Senão"*, e vamos seguir uma estrutura mais ou menos assim: ***"SE (essa condição for verdadeira) { faça isso } SENÃO { faça outra coisa }"***. Sendo que o `else` é opcional.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int x;
+    cin >> x;
+
+    if(x == 0){
+      cout << "X é igual a zero!" << endl;
+    }
+    else {
+      cout << "X é diferente de zero!" << endl;
+    }
+}
+```
+
+Os operadores *booleanos* de comparação que podemos usar são esses:
+
+| Operador | Descrição          |
+| :------: | ------------------ |
+|   `==`   | Igual a            |
+|   `!=`   | Diferente de       |
+|   `>`    | Maior que          |
+|   `<`    | Menor que          |
+|   `>=`   | Maior ou igual que |
+|   `<=`   | Menor ou igual que |
+
+Além desses, temos também os **operadores lógicos**, que permitem que construamos condições lógicas mais complexas. São eles o **"E"**, o **"OU"** e o **"NÃO** (mas escritos em inglês 😅). Com eles nós podemos compor várias comparações e condições em um único *if*.
+
+|  Operador  | Descrição                                                   |
+| :--------: | ----------------------------------------------------------- |
+| `&&` `and` | "E" lógico, as duas condições precisam ser verdadeiras      |
+|  `||` `or` | "OU" lógico, só uma das condições precisa ser verdadeira    |
+| `!` `not`  | Negação, inverte o valor da condição na frente do operador  |
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int x;
+    cin >> x;
+
+    if(x >= 1 && x <= 10){
+      cout << "X está entre 1 e 10" << endl;
+    }
+
+    if(x < 5 || x > 10){
+      cout << "X é menor que 5 OU x é maior que 10" << endl;
+    }
+}
+```
+
+No `else` podemos ainda adicionar outro `if` junto e encadear várias comparações com `else if`. Quando você encadeia vários `else if`, o segundo só vai ser avaliado se o primeiro `if` for falso, e o terceiro se o primeiro e segundo forem falsos, e assim por diante.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int x;
+    cin >> x;
+
+    if(x < 0){
+      cout << "X é um número negativo!" << endl;
+    }
+    else if(x < 100){
+      cout << "X é maior ou igual a 0, mas é menor do que 100!" << endl;
+    } 
+    else {
+      cout << "X é maior ou igual a 100!" << endl;
+    }
+}
+```
+
+Pratique um pouco antes de continuar!
+
+<details>
+  <summary> <b>Exercícios sugeridos!</b> </summary>
+  <ul>
+    <li>Nenhum ainda (o_o)</li>
+  </ul>
+</details>
+
+
 ## Estruturas de Repetição
+
+Se eu pedisse para você imprimir na saída do programa os números de 1 até 100, como você faria? Ou de 1 até 1000?! Não parece uma boa escolha fazer 1000 comandos de `cout`, certo? Mas observe tb que todas essas *operações* são quase iguais, só muda o valor que vai ser impresso. Para coisas assim que queremos repetir um mesmo código várias vezes que existem as **estruturas de repetição**!
+
+A primeira estrutura que vamos ver é o `while`, ou o **"enquanto"**. A estrutura dele é bem simples e um pouco parecida com a do `if`, há uma condição que dirá se o código deverá ser repetido de novo não: **"ENQUANTO (essa condição for verdadeira) { faça isso }"**.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numero = 1;
+
+    while(numero <= 100){
+
+      cout << "O número é " << numero << endl;
+
+      numero = numero + 1;
+    }
+}
+```
+
+Veja que neste código colocamos uma condição de que este trecho deve se repetir enquanto o número for menor ou igual a 100, e no final de cada *"iteração"* nós aumentamos o valor da variável em 1.
+
+> **Cuidado** com *"loops infinitos"*!!! Isto é, com condições que nunca se tornam falsas, pois nesse caso seu programa pode entrar em looping e não irá parar sozinho. Por exemplo, se não fizéssemos `numero = numero + 1;` o valor da variável continuaria o mesmo e o programa nunca iria parar de imprimir!!!
+{: .prompt-danger }
+
+Além do `while` temos o `for`. Na prática utilizamos muito mais o `for`, mas eles são equivalentes de certa forma. Mas no `for` nós temos três "espaços" diferentes. O primeiro para declarar variáveis antes de começar a executar o `for`. O segundo é onde estará a condição, como no `while`. E o terceiro e último espaço é para realizar uma ação ao fim de cada *iteração*. 
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    for(int numero=1; numero <= 100; numero++){
+
+      cout << "O número é " << numero << endl;
+    
+    }
+
+    for(int i=1; i <= 100; i++){
+      // É comum usarmos nomes de variável como i, j e k para o for
+    }
+}
+```
+
+Perceba que o código ficou mais compacto, e as variáveis que estamos usando para o `for` são declaras lá mesmo, sem se confundirem com outras variáveis com outros propósitos. E claro, dessa forma é mais difícil de cair em *loops infinitos*. Mas podemos deixar o primeio e o último espaços do `for` vazios, aí funcionaria apenas como um `while`.
+
+Você deve ter percebido também um `++` nesse código, ele serve apenas para deixar o código mais simples de entender. O `++` é um operador que altera o valor de uma variável diretamente. Temos alguns outros também:
+
+| Operador  | Descrição                                 | Uso                             |
+| :-------: | ----------------------------------------- | ------------------------------- |
+|   `++`    | Soma 1                                    | `x++` equivale a `x = x + 1`    |
+|   `--`    | Subtrai 1                                 | `x--` equivale a `x = x - 1`    |
+|   `+=`    | Soma o valor na frente                    | `x += y` equivale a `x = x + y` |
+|   `-=`    | Subtrai o valor na frente                 | `x -= y` equivale a `x = x - y` |
+|   `*=`    | Multiplica pelo valor na frente           | `x *= y` equivale a `x = x * y` |
+|   `/=`    | Divide pelo valor na frente               | `x /= y` equivale a `x = x / y` |
+|   `/=`    | Resto da divisão pelo valor na frente     | `x %= y` equivale a `x = x % y` |
+
+> **Escopo** \
+> Quando declaramos uma variável ela estárá disponível dentro de um *escopo*. Isto é, essa variável não necessariamente estará disponível para todo o código. Por exemplo, se você declarar uma variável dentro de um `if` ela só estará diponível dentro daquele if, e não poderá ser acessada fora desse *escopo*. No caso do `for`, o `int i` que nós declaramos no começo só estará disponível dentro do `for` e não pode ser acessado fora deste.
+{: .prompt-info }
+
+Muita informação pra digerir? Pratique um pouco antes de avançar para os próximos tópicos para fixar melhor as informações. Além disso, você não precisa memorizar todas essas coisas de uma vez, com o tempo e a prática tudo isso ficará natural.
+
 ## Arrays
+### Matrizes
 ### Vetores
 ## Funções
 ### Recursão
